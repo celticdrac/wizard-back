@@ -1,0 +1,38 @@
+POST http://localhost:8080/api/create-user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "usuario0",
+    "password": "password!2A"
+}
+
+### failed by type:
+
+POST http://localhost:8080/api/create-user HTTP/1.1
+content-type: application/json
+
+{
+    "username": 10,
+    "password": 10
+}
+
+### failed by required:
+
+POST http://localhost:8080/api/create-user HTTP/1.1
+content-type: application/json
+
+{
+    "user": "x",
+    "pass": "y"
+}
+
+### correct with optional clue:
+
+POST http://localhost:8080/api/create-user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "usuario0",
+    "password": "password!2A",
+    "clue": "pista"
+}
